@@ -1,0 +1,11 @@
+C:\Users\BRuno\Documents\Cruds\Crud-Simples\Crud.Data\obj\Debug\netcoreapp2.0\Crud.Data.csproj.CoreCompileInputs.cache
+C:\Users\BRuno\Documents\Cruds\Crud-Simples\Crud.Data\obj\Debug\netcoreapp2.0\Crud.Data.AssemblyInfoInputs.cache
+C:\Users\BRuno\Documents\Cruds\Crud-Simples\Crud.Data\obj\Debug\netcoreapp2.0\Crud.Data.AssemblyInfo.cs
+C:\Users\BRuno\Documents\Cruds\Crud-Simples\Crud.Data\bin\Debug\netcoreapp2.0\Crud.Data.deps.json
+C:\Users\BRuno\Documents\Cruds\Crud-Simples\Crud.Data\bin\Debug\netcoreapp2.0\Crud.Data.dll
+C:\Users\BRuno\Documents\Cruds\Crud-Simples\Crud.Data\bin\Debug\netcoreapp2.0\Crud.Data.pdb
+C:\Users\BRuno\Documents\Cruds\Crud-Simples\Crud.Data\bin\Debug\netcoreapp2.0\Crud.Domain.dll
+C:\Users\BRuno\Documents\Cruds\Crud-Simples\Crud.Data\bin\Debug\netcoreapp2.0\Crud.Domain.pdb
+C:\Users\BRuno\Documents\Cruds\Crud-Simples\Crud.Data\obj\Debug\netcoreapp2.0\Crud.Data.csprojResolveAssemblyReference.cache
+C:\Users\BRuno\Documents\Cruds\Crud-Simples\Crud.Data\obj\Debug\netcoreapp2.0\Crud.Data.dll
+C:\Users\BRuno\Documents\Cruds\Crud-Simples\Crud.Data\obj\Debug\netcoreapp2.0\Crud.Data.pdb

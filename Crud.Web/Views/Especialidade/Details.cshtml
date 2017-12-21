@@ -1,0 +1,26 @@
+﻿@model Crud.Domain.Especialidades.Especialidade
+
+@{
+    ViewData["Title"] = "Detalhes da Especialidade";
+}
+
+<div class="row">
+    <h4>Especialidade</h4>
+    <hr />
+    <div class="col-md-12">
+        <dl class="dl-horizontal">
+            <dt>Descrição</dt>
+            <dd>
+                @Html.DisplayFor(model => model.Descricao)
+            </dd>
+        </dl>
+    </div>
+
+    <div id="actions" class="row">
+        <div class="col-md-12">
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Editar</a>
+            <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger">Deletar</a>
+            <a asp-action="Index" class="btn btn-default">Voltar</a>
+        </div>
+    </div>
+</div>

@@ -29,7 +29,7 @@ namespace Crud.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Descricao")] Especialidade especialidade)
+        public async Task<IActionResult> Create([Bind("Descricao")] Especialidade especialidade)
         {
             try
             {
@@ -92,6 +92,17 @@ namespace Crud.Web.Controllers
             }
             return View(especialidade);
         }
+
+        public async Task<ActionResult> Details(int id)
+        {
+
+            var especialidade = await _context.Especialidade.SingleOrDefaultAsync(m => m.Id == id);
+            if (especialidade == null)
+                return NotFound();
+
+            return View(especialidade);
+        }
+
 
         public async Task<ActionResult> Delete(int? id)
         {

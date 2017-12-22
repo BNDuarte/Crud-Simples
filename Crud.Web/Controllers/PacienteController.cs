@@ -29,7 +29,7 @@ namespace Crud.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,CartaoSus")] Paciente paciente)
+        public async Task<IActionResult> Create([Bind("Nome,CartaoSus")] Paciente paciente)
         {
             try
             {
@@ -68,7 +68,7 @@ namespace Crud.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit([Bind("Id,Nome,CartaoUSu")] Paciente paciente)
+        public async Task<IActionResult> Edit([Bind("Id,Nome,CartaoSus")] Paciente paciente)
         {
             if (ModelState.IsValid)
             {
@@ -90,6 +90,18 @@ namespace Crud.Web.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            return View(paciente);
+        }
+
+        public async Task<ActionResult> Details(int id)
+        {
+
+            var paciente = await _context.Paciente.SingleOrDefaultAsync(m => m.Id == id);
+            if (paciente == null)
+            {
+                return NotFound();
+            }
+
             return View(paciente);
         }
 

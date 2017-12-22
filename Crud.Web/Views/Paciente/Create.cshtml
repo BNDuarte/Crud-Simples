@@ -1,0 +1,35 @@
+﻿@model Crud.Domain.Pacientes.Paciente
+@{
+    ViewData["Title"] = "Novo Paciente";
+}
+
+<div class="row header">
+    <div class="col-md-12">
+        <h3>Paciente</h3>
+    </div>
+</div>
+<div class="row form-wrapper">
+    <div class="col-md-12">
+        <form asp-action="Create" asp-controller="Paciente" method="POST">
+            <input type="hidden" asp-for="Id">
+            <div class="form-group">
+                <div class="form-group">
+                    <label for="Descricao">Descrição</label>
+                    <input type="text" class="form-control" asp-for="Nome">
+                </div>
+                <div class="form-group">
+                    <label for="CartaoSus">Cartão do SUS</label>
+                    <input type="text" class="form-control" asp-for="CartaoSus">
+                </div>
+                <button type="submit" class="btn btn-default">Salvar</button>
+                <a asp-action="Index" class="btn btn-primary">Voltar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="/js/jquery.validate.min.js"></script>
+    <script src="/js/jquery.validate.unobtrusive.js"></script>
+    <script src="/js/jquery.unobtrusive-ajax.min.js"></script>
+}

@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using Crud.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Crud.Domain.Medicos;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Crud.Domain.Especialidades;
 
 namespace Crud.Web.Controllers
 {
@@ -18,18 +20,19 @@ namespace Crud.Web.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var medico = await _context.Medico.ToListAsync();
+            var medico = await _context.Medico.Include(e=>e.Especialidade).ToListAsync();
             return View(medico);
         }
 
         public IActionResult Create()
         {
+            PopularViewBag();
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,EspecialidadeId")] Medico medico)
+        public async Task<IActionResult> Create([Bind("Nome,EspecialidadeId")] Medico medico)
         {
             try
             {
@@ -63,6 +66,7 @@ namespace Crud.Web.Controllers
                 return NotFound();
             }
 
+            PopularViewBag(medico);
             return View(medico);
         }
 
@@ -90,6 +94,18 @@ namespace Crud.Web.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            return View(medico);
+        }
+
+        public async Task<ActionResult> Details(int id)
+        {
+
+            var medico = await _context.Medico.Include(e => e.Especialidade).SingleOrDefaultAsync(m => m.Id == id);
+            if (medico == null)
+            {
+                return NotFound();
+            }
+
             return View(medico);
         }
 
@@ -121,6 +137,18 @@ namespace Crud.Web.Controllers
         private bool MedicoExists(int id)
         {
             return _context.Medico.Any(e => e.Id == id);
+        }
+
+        private void PopularViewBag(Medico medico = null)
+        {
+            if (medico == null)
+            {
+                ViewBag.EspecialidadeId = new SelectList(_context.Especialidade.OrderBy(e => e.Descricao), "Id", "Descricao");
+            }
+            else
+            {
+                ViewBag.EspecialidadeId = new SelectList(_context.Especialidade.OrderBy(e => e.Descricao), "Id", "Descricao", medico.EspecialidadeId);
+            }
         }
     }
 }

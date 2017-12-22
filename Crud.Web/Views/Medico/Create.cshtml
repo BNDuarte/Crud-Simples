@@ -1,0 +1,34 @@
+﻿@model Crud.Domain.Medicos.Medico
+@{
+    ViewData["Title"] = "Novo Médico";
+}
+
+<div class="row header">
+    <div class="col-md-12">
+        <h3>Médico</h3>
+    </div>
+</div>
+<div class="row form-wrapper">
+    <div class="col-md-12">
+        <form asp-action="Create" asp-controller="Medico" method="POST">
+            <input type="hidden" asp-for="Id">
+            <div class="form-group">
+                <div class="form-group">
+                    <label for="Descricao">Descrição</label>
+                    <input type="text" class="form-control" asp-for="Nome">
+                </div>
+                <select asp-for="EspecialidadeId" class="form-control" asp-items="ViewBag.EspecialidadeId">
+                    <option value="">-- Escolha a especialidade --</option>
+                </select>
+                <button type="submit" class="btn btn-default">Salvar</button>
+                <a asp-action="Index" class="btn btn-primary">Voltar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="/js/jquery.validate.min.js"></script>
+    <script src="/js/jquery.validate.unobtrusive.js"></script>
+    <script src="/js/jquery.unobtrusive-ajax.min.js"></script>
+}

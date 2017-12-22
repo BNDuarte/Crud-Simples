@@ -31,9 +31,25 @@
                     <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
                     <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
                     <a asp-action="Delete" asp-route-id="@item.Id">Deletar</a>|
-                    <a asp-controller="Consulta" asp-action="Delete" asp-route-id="@item.Id">Consultas</a>
+                    <a id="consulta" data-id="@item.Id">Consultas</a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
+<div class="modal" id="modal">
+</div>
+
+@section scripts{
+    <script>
+        $(function () {
+            $("#consulta").click(function () {
+                var id = $(this).attr("data-id");
+                var url = "/Paciente/ListarConsulta/" + id;
+                $("#modal").load(url, function () {
+                    $("#modal").modal();
+                })
+            });
+        })
+    </script>
+}

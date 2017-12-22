@@ -119,6 +119,12 @@ namespace Crud.Web.Controllers
             }
             return View(paciente);
         }
+        
+        public async Task<ActionResult> ListarConsulta(int? id)
+        {
+            var consulta = await _context.Consulta.Include(p => p.Paciente).Include(m => m.Medico).Where(c => c.PacienteId == id).ToListAsync();
+            return View("Consultas",consulta);
+        }
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

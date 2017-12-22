@@ -17,9 +17,12 @@
                     <label for="Descricao">Descrição</label>
                     <input type="text" class="form-control" asp-for="Nome">
                 </div>
-                <select asp-for="EspecialidadeId" class="form-control" asp-items="ViewBag.EspecialidadeId">
-                    <option value="">-- Escolha a especialidade --</option>
-                </select>
+                <div class="form-group">
+                    <label for="Especialidade">Especialidade</label>
+                    <select asp-for="EspecialidadeId" class="form-control" asp-items="ViewBag.EspecialidadeId">
+                        <option value="">-- Escolha a especialidade --</option>
+                    </select>
+                </div>
                 <button type="submit" class="btn btn-default">Salvar</button>
                 <a asp-action="Index" class="btn btn-primary">Voltar</a>
             </div>
